@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive HTML Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      // Connect to the MySQL database
+      $conn = mysqli_connect("127.0.0.1:3307", "root", "P@ssw0rd", "laundrypalace");
+
+        // Check connection
+        if ($conn === false) {
+            die("ERROR: Could not connect. "
+                . mysqli_connect_error());
+        }
+
+
+        $first_name = $_REQUEST['first_name'];
+        $last_name = $_REQUEST['last_name'];
+
+
+      if (mysqli_num_rows($result) > 0) {
+        // Output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr>";
+          echo "<td><input type='text' value='" . $row['name'] . "' /></td>";
+          echo "<td><input type='text' value='" . $row['age'] . "' /></td>";
+          echo "<td class='dropdown'>";
+          echo "<span>Click for options</span>";
+          echo "<div class='dropdown-content'>";
+          echo "<p>Option 1</p>";
+          echo "<p>Option 2</p>";
+          echo "<p>Option 3</p>";
+          echo "</div>";
+          echo "</td>";
+          echo "</tr>";
+        }
+      } else {
+        echo "<tr><td colspan='3'>No data available</td></tr>";
+      }
+
+      // Close the MySQL connection
+      mysqli_close($conn);
+      ?>
+    </tbody>
+  </table>
+
+  <script>
+    // Get all dropdown elements
+    const dropdowns = document.getElementsByClassName('dropdown');
+
+    // Add click event listener to each dropdown
+    for (let i = 0; i < dropdowns.length; i++) {
+      const dropdown = dropdowns[i];
+      const content = dropdown.getElementsByClassName('dropdown-content')[0];
+
+      dropdown.addEventListener('click', function() {
+        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+      });
+    }
+  </script>
+</body>
+</html>

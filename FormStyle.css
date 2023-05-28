@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F8F8;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+ }
+
+ h1 {
+    color: #66054C;
+    text-align: center;
+    margin-bottom: 20px;
+ }
+
+ h2 {
+   color: #66054C;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+ form {
+    width: 300px;
+    margin: 0 auto;
+ }
+
+ label {
+    display: block;
+    margin-bottom: 5px;
+ }
+ 
+  input[type="text"],
+ select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
+
+ input[type="submit"] {
+    background-color: #06B0F3;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+ }
+
+ input[type="submit"]:hover {
+    background-color: #047ABF;
+ }
+
+ .counter-container {
+    display: flex;
+    align-items: center;
+ }
+
+ .counter-container input[type="number"] {
+    width: 50px;
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+ }
+
+ .counter-container button {
+    padding: 6px 10px;
+    background-color: #06B0F3;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+ }
+
+ .counter-container button:first-child {
+    margin-right: 5px;
+ }
+
+ .counter-container button:hover {
+    background-color: #047ABF;
+ }
+ .logout-button[type="submit"] {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   background-color: red;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   cursor: pointer;
+}
+
+.logout-button:hover,
+.logout-button[type="submit"]:hover {
+   background-color: #CC0000;
+}
+.buttons_1{
+    text-align: center;
+    align-items: center;
+}
