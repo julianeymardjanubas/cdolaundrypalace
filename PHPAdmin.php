@@ -23,13 +23,13 @@ if ($_SESSION['username'] !== 'Admin') {
    </head>
    <body>
          <h1>Storing Form data in Database</h1>
-         <form action="PHPAdminEngine.php" method="post">
-          <div class="buttons_1">
+         <div class="buttons_1">
               <button onclick="window.location.href='PHPAdmin.php'">Customer Input</button>
               <button onclick="window.location.href='PHPUpdateAdmin.php'">Update Transactions</button>
               <button onclick="window.location.href='PHPRegister.php'">Add Employees</button>
               <button onclick="window.location.href='PHPReport.php'">Sales Report</button>
           </div>
+         <form action="PHPAdminEngine.php" method="post">
       <p>
          <label for="firstName">First Name:</label>
          <input type="text" name="F_Name" id="firstName" placeholder="Enter First Name" required>
